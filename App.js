@@ -4,13 +4,17 @@ import {LoginScreen} from './src/presentation/containers/auth/LoginScreen';
 import {CreateUserScreen} from './src/presentation/containers/CreateUserScreen';
 import {NavigationContainer} from '@react-navigation/native';
 import {TabNavigator} from './src/presentation/navigation/TabNavigator';
+import {Provider} from 'react-redux';
+import {store} from './src/application/Store';
+import {Main} from './src/presentation/navigation/Main';
 
 const App = () => {
-  const [loggedin, setloggedin] = useState(false);
   return (
-    <NavigationContainer>
-      {loggedin ? <TabNavigator /> : <LoginScreen />}
-    </NavigationContainer>
+    <Provider store={store}>
+      <NavigationContainer>
+        <Main />
+      </NavigationContainer>
+    </Provider>
   );
 };
 

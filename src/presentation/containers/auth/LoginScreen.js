@@ -1,16 +1,15 @@
 import React from 'react';
-import {
-  Image,
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import {Image, SafeAreaView, StyleSheet, Text, View} from 'react-native';
+import {useDispatch} from 'react-redux';
+import {userLoggedin} from '../../../application/actions/auth.action';
 import {CustomButton} from '../../components/CustomButton';
 import {CustomTextInput} from '../../components/CustomTextInput';
 
 export const LoginScreen = () => {
+  const dispatch = useDispatch();
+  const handleLogin = () => {
+    dispatch(userLoggedin(true));
+  };
   return (
     <SafeAreaView>
       <View style={styles.container}>
@@ -20,7 +19,7 @@ export const LoginScreen = () => {
         />
         <CustomTextInput text="Usuario" />
         <CustomTextInput text="Contraseña" secure={true} />
-        <CustomButton text="Iniciar Sesión" />
+        <CustomButton text="Iniciar Sesión" onPress={handleLogin} />
         <CustomButton text="Registrarse" btnWhite={true} />
         <View style={styles.viewRights}>
           <Text style={styles.rights}>Powerared by OLSoftware</Text>

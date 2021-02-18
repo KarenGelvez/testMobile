@@ -1,13 +1,14 @@
 import React from 'react';
 import {StyleSheet, TextInput, View} from 'react-native';
 
-export const CustomTextInput = ({text = '', secure = false}) => {
+export const CustomTextInput = ({text = '', secure = false, value = ''}) => {
   return (
     <View style={styles.view}>
       <TextInput
         style={styles.textinput}
         placeholder={text}
         secureTextEntry={secure}
+        value={value}
       />
     </View>
   );
@@ -15,7 +16,7 @@ export const CustomTextInput = ({text = '', secure = false}) => {
 const styles = StyleSheet.create({
   view: {
     flexDirection: 'row',
-    margin: 10,
+    marginVertical: 10,
     alignItems: 'center',
     borderWidth: 1,
     borderRadius: 5,

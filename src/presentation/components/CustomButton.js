@@ -1,15 +1,15 @@
 import React from 'react';
 import {StyleSheet, Text, TouchableOpacity} from 'react-native';
 
-export const CustomButton = ({text, btnWhite = false}) => {
+export const CustomButton = ({text, btnWhite = false, onPress = () => {}}) => {
   return (
     <>
       {btnWhite ? (
-        <TouchableOpacity style={styles.buttonRegister}>
+        <TouchableOpacity style={styles.buttonRegister} onPress={onPress}>
           <Text style={styles.textbtnRegister}>{text}</Text>
         </TouchableOpacity>
       ) : (
-        <TouchableOpacity style={styles.buttonLogin}>
+        <TouchableOpacity style={styles.buttonLogin} onPress={onPress}>
           <Text style={styles.textbtnLogin}>{text}</Text>
         </TouchableOpacity>
       )}
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     height: 45,
     width: '100%',
-    margin: 10,
+    marginVertical: 10,
     backgroundColor: '#ff4e4e',
   },
   buttonRegister: {
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     height: 45,
     width: '100%',
-    margin: 10,
+    marginVertical: 10,
     borderWidth: 1,
     borderColor: '#ff4e4e',
     backgroundColor: '#fff',
